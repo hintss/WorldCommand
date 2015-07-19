@@ -1,0 +1,5 @@
+name: WorldCommand
+version: 1.0
+main: tk.hintss.worldcommand.WorldCommand
+description: Runs a command when a player enters/logs in to a world
+author: hintss

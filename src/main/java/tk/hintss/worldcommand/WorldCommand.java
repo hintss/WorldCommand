@@ -43,7 +43,7 @@ public class WorldCommand extends JavaPlugin implements Listener {
         new BukkitRunnable() {
             public void run() {
                 if (p.getWorld().getName().equalsIgnoreCase(instance.getConfig().getString("world"))) {
-                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("command"));
+                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("command").replace("@p", p.getName()));
                 }
             }
         }.runTaskLater(this, 1);

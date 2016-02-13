@@ -42,7 +42,7 @@ public class WorldCommand extends JavaPlugin implements Listener {
     private void checkAndRunCommand(final Player p) {
         new BukkitRunnable() {
             public void run() {
-                if (p.getWorld().getName().equalsIgnoreCase(instance.getConfig().getString("world"))) {
+                if (p.getWorld().getName().equalsIgnoreCase(instance.getConfig().getString("world")) && p.hasPermission("worldcommand.run")) {
                     Bukkit.dispatchCommand(Bukkit.getConsoleSender(), instance.getConfig().getString("command").replace("@p", p.getName()));
                 }
             }

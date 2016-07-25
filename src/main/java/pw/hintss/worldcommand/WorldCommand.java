@@ -48,8 +48,17 @@ public class WorldCommand extends JavaPlugin implements Listener {
                     getLogger().warning("sender isn't specified! assuming console!");
                 }
 
+                if (!getConfig().contains(path + "command")) {
+                    getLogger().warning("missing command! skipping...");
+                    continue;
+                }
+
                 String cmd = getConfig().getString(path + "command");
                 boolean onJoin = getConfig().getBoolean(path + "onjoin");
+
+                if (!getConfig().contains(path + "onjoin")) {
+                    getLogger().warning("missing \"onjoin\" parameter! assuming false...");
+                }
 
                 getLogger().info("      command: " + cmd);
                 getLogger().info("      sender:  " + sender.name());

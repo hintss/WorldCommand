@@ -1,2 +1,9 @@
-world: world
-command: say lol @p
+world: # world name goes here
+  1: # can be anything, really. the last bit of the permission node (eg, worldcommand.world.1 for this one)
+    sender: console #either "player" or "console"
+    command: say hello there, @p # the command. @p can be used as a placeholder for the player's name
+    onjoin: true # whether you want it to run if a player logs in in this world, otherwise only run if they switched worlds into this world
+  2:
+    sender: player
+    command: kill
+    onjoin: false

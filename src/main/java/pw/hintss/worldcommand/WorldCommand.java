@@ -35,7 +35,19 @@ public class WorldCommand extends JavaPlugin implements Listener {
                 getLogger().info("   loading command: " + command);
 
                 String path = world + '.' + command + '.';
-                Sender sender = Sender.fromValue(getConfig().getString(path + "sender"));
+                Sender sender = Sender.CONSOLE;
+                if (getConfig().contains(path + "sender")) {
+                    if (getConfig().getString(path + "sender").equalsIgnoreCase("player")) {
+                        sender = Sender.PLAYER;
+                    } else {
+                        if (!getConfig().getString(path + "sender").equalsIgnoreCase("console")) {
+                            getLogger().warning("sender isn't \"console\" or \"player\"! assuming console!");
+                        }
+                    }
+                } else {
+                    getLogger().warning("sender isn't specified! assuming console!");
+                }
+
                 String cmd = getConfig().getString(path + "command");
                 boolean onJoin = getConfig().getBoolean(path + "onjoin");
 

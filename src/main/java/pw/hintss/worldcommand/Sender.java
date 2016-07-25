@@ -5,10 +5,4 @@ package pw.hintss.worldcommand;
  */
 public enum Sender {
     CONSOLE, PLAYER;
-
-    public static Sender fromValue(String value) {
-        String upper = value.toUpperCase();
-
-        return valueOf(upper);
-    }
 }
